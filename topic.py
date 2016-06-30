@@ -46,11 +46,22 @@ class TopicDetector:
 		tng=NGram(texto)
 		file2.close()
 
+		'''
 		for ngs in self.ng:
 			count=0
 			for word in list(ngs):
 				count+=len(tng.items_sharing_ngrams(word))
 			results+=[count]
+		'''
+
+		for ngs in self.ng:
+			count=0
+			for word in list(ngs):
+				for porc in tng.search(word):
+					if porc[1]>0.3:
+						count+=1
+			results+=[count]
+
 
 		print list(results)
 
@@ -71,4 +82,6 @@ class TopicDetector:
 
 if __name__ == '__main__':
 	Detector=TopicDetector("topicos.txt")
+	Detector.verify("texto1.txt")
 	Detector.verify("texto2.txt")
+	Detector.verify("texto3.txt")
