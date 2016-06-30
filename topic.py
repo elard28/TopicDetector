@@ -10,6 +10,7 @@ class TopicDetector:
 			words = linea.split(" ")
 			self.topic += [words[0]]
 			nng = NGram(words[2].split(","))
+			print list(nng)
 			self.ng += [nng]
 		file.close()
 
@@ -47,9 +48,11 @@ class TopicDetector:
 
 		for ngs in self.ng:
 			count=0
-			for word in list(ng):
+			for word in list(ngs):
 				count+=len(tng.items_sharing_ngrams(word))
 			results+=[count]
+
+		print list(results)
 
 		pos=0
 		count=0
@@ -68,4 +71,4 @@ class TopicDetector:
 
 if __name__ == '__main__':
 	Detector=TopicDetector("topicos.txt")
-	Detector.verify("texto1.txt")
+	Detector.verify("texto2.txt")
