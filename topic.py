@@ -13,32 +13,35 @@ class TopicDetector:
 			self.ng += [nng]
 		file.close()
 
-    	'''file = open(text,"r")
+    	'''
+    	file = open(text,"r")
 		linea = file.readline()
 		while linea != '':
 			words = linea.split(" ")
-    		self.topic += [words[0]]
-    		nng = NGram(words[2].split(","))
-    		self.ng += [nng]
+			self.topic += [words[0]]
+			nng = NGram(words[2].split(","))
+			self.ng += [nng]
 			linea = file.readline()
-		file.close()'''
+		file.close()
+		'''
 
 	def verify(self,text_compare):
 		results = []
 		texto = []
 
-		'''file2 = open(text_compare,"r")
+		'''
+		file2 = open(text_compare,"r")
 		for linea2 in file2.readlines():
 			texto+=linea2.split(" ")
 		tng=NGram(texto)
-		file2.close()'''
+		file2.close()
+		'''
 
-		file2 = open(text,"r")
+		file2 = open(text_compare,"r")
 		linea2 = file2.readline()
 		while linea2 != '':
-			if linea2 != '\n':
-				texto+=linea2.split(" ")
-			linea = file.readline()
+			texto+=linea2.split(" ")
+			linea = file2.readline()
 		tng=NGram(texto)
 		file2.close()
 
