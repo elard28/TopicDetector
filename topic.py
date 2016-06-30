@@ -8,10 +8,10 @@ class TopicDetector:
 		file = open(text,"r")
 		for linea in file.readlines():
 			words = linea.split(" ")
-    		self.topic += [words[0]]
-    		nng = NGram(words[2].split(","))
-    		self.ng += [nng]
-    	file.close()
+			self.topic += [words[0]]
+			nng = NGram(words[2].split(","))
+			self.ng += [nng]
+		file.close()
 
     	'''file = open(text,"r")
 		linea = file.readline()
