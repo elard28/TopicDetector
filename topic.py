@@ -63,7 +63,10 @@ class TopicDetector:
 				pos=i
 			i+=1
 
-		print("Tema mas preciso del texto: "+repr(self.topic[pos]))
+		if results[pos]>2:
+			print("Tema mas preciso del texto: "+repr(self.topic[pos]))
+		else:
+			print("No se ha podido precisar de que trata")
 				
 
 			
