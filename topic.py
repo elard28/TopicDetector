@@ -6,11 +6,11 @@ class TopicDetector:
 		self.ng=[]
 		self.topic=[]
 		file = open(text,"r")
+
 		for linea in file.readlines():
 			words = linea.split(" ")
 			self.topic += [words[0]]
 			nng = NGram(words[2].split(","))
-			print list(nng)
 			self.ng += [nng]
 		file.close()
 
@@ -29,7 +29,6 @@ class TopicDetector:
 	def verify(self,text_compare):
 		results = []
 		texto = []
-
 		'''
 		file2 = open(text_compare,"r")
 		for linea2 in file2.readlines():
@@ -37,7 +36,6 @@ class TopicDetector:
 		tng=NGram(texto)
 		file2.close()
 		'''
-
 		file2 = open(text_compare,"r")
 		linea2 = file2.readline()
 		while linea2 != '':
@@ -45,14 +43,6 @@ class TopicDetector:
 			linea2 = file2.readline()
 		tng=NGram(texto)
 		file2.close()
-
-		'''
-		for ngs in self.ng:
-			count=0
-			for word in list(ngs):
-				count+=len(tng.items_sharing_ngrams(word))
-			results+=[count]
-		'''
 
 		for ngs in self.ng:
 			count=0
@@ -62,8 +52,7 @@ class TopicDetector:
 						count+=1
 			results+=[count]
 
-
-		print list(results)
+		#print list(results)
 
 		pos=0
 		count=0
