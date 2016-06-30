@@ -52,7 +52,7 @@ class TopicDetector:
 						count+=1
 			results+=[count]
 
-		#print list(results)
+		print list(results)
 
 		pos=0
 		count=0
@@ -67,7 +67,7 @@ class TopicDetector:
 			print("Tema mas preciso del texto: "+repr(self.topic[pos]))
 		else:
 			print("No se ha podido precisar de que trata")
-				
+		print ""			
 
 			
 
