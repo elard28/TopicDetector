@@ -73,7 +73,7 @@ class TopicDetector:
 
 
 if __name__ == '__main__':
-	Detector=TopicDetector("topicos.txt")
+	Detector=TopicDetector("topicos")
 	Detector.verify("texto1.txt")
 	Detector.verify("texto2.txt")
 	Detector.verify("texto3.txt")
