@@ -41,7 +41,7 @@ class TopicDetector:
 		linea2 = file2.readline()
 		while linea2 != '':
 			texto+=linea2.split(" ")
-			linea = file2.readline()
+			linea2 = file2.readline()
 		tng=NGram(texto)
 		file2.close()
 
